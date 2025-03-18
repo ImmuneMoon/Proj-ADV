@@ -1,0 +1,17 @@
+Month 1 Progress [2/24/25 -> 3/24/25]
+
+####---LOG 1---####
+
+Log Date: 3/18/25
+
+I've worked on getting a first level and basic game mechanics implemented. 
+The character sprite is a stand in for now. The character can move in a 
+16x16 grid, the character can teleport, the character is in the works of 
+being able to talk to NPCs. There is a unfinished beginning sequence, 
+title screen and about half a dozen rooms currently.
+
+The current goal is to polish the dialogue, finish the opening animation, 
+begin incorporating menu screens (Including character inventory, monster 
+inventory, battle menus and related.), incorporate needed NPCs for first 
+location and begin working on new locations using the foundations made in 
+this period.
