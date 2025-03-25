@@ -1,0 +1,1 @@
+path_start(PTH_Intro_002_Nidorino_Background, 4, path_action_stop, true);

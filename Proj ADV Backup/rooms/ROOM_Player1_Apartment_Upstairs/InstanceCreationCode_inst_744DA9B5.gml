@@ -1,0 +1,1 @@
+Player_go_in_Aptmnt = false;

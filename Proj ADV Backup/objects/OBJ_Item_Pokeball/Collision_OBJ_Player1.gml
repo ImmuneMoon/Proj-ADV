@@ -1,0 +1,1 @@
+global.facing_item = true;

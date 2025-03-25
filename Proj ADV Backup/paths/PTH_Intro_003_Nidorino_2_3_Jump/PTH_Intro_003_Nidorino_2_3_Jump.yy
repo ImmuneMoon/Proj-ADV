@@ -1,0 +1,23 @@
+{
+  "$GMPath":"",
+  "%Name":"PTH_Intro_003_Nidorino_2_3_Jump",
+  "closed":false,
+  "kind":1,
+  "name":"PTH_Intro_003_Nidorino_2_3_Jump",
+  "parent":{
+    "name":"Intro_Video_3",
+    "path":"folders/Paths/Title_n_Loading_Screens/Intro_Cutscene/Intro_Video_3.yy",
+  },
+  "points":[
+    {"speed":75.0,"x":194.0,"y":68.0,},
+    {"speed":75.0,"x":180.0,"y":30.0,},
+    {"speed":75.0,"x":165.0,"y":17.0,},
+    {"speed":50.0,"x":145.0,"y":13.0,},
+    {"speed":25.0,"x":126.0,"y":13.0,},
+    {"speed":10.0,"x":111.0,"y":16.0,},
+    {"speed":0.0,"x":100.0,"y":20.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

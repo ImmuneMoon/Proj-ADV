@@ -1,0 +1,1 @@
+path_start(PTH_Logo_Slide, 4, path_action_stop, true);

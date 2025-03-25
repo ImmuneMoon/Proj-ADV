@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Script_Set_Song_Ingame",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Script_Set_Song_Ingame",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,1 @@
+global.Player_Backpack_Main_Pouch = ds_list_create();

@@ -1,0 +1,20 @@
+{
+  "$GMPath":"",
+  "%Name":"PTH_Intro_003_Tall_Grass_Foreground",
+  "closed":false,
+  "kind":0,
+  "name":"PTH_Intro_003_Tall_Grass_Foreground",
+  "parent":{
+    "name":"Intro_Video_3",
+    "path":"folders/Paths/Title_n_Loading_Screens/Intro_Cutscene/Intro_Video_3.yy",
+  },
+  "points":[
+    {"speed":65.0,"x":311.0,"y":96.0,},
+    {"speed":65.0,"x":40.0,"y":96.0,},
+    {"speed":17.0,"x":20.0,"y":96.0,},
+    {"speed":17.0,"x":-200.0,"y":96.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

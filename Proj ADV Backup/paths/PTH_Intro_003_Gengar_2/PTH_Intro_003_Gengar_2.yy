@@ -1,0 +1,18 @@
+{
+  "$GMPath":"",
+  "%Name":"PTH_Intro_003_Gengar_2",
+  "closed":false,
+  "kind":0,
+  "name":"PTH_Intro_003_Gengar_2",
+  "parent":{
+    "name":"Intro_Video_3",
+    "path":"folders/Paths/Title_n_Loading_Screens/Intro_Cutscene/Intro_Video_3.yy",
+  },
+  "points":[
+    {"speed":48.0,"x":224.0,"y":32.0,},
+    {"speed":48.0,"x":20.0,"y":32.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

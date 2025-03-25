@@ -1,0 +1,18 @@
+{
+  "$GMPath":"",
+  "%Name":"PTH_Intro_002_Nidorino_Background",
+  "closed":false,
+  "kind":0,
+  "name":"PTH_Intro_002_Nidorino_Background",
+  "parent":{
+    "name":"Intro_Video_2",
+    "path":"folders/Paths/Title_n_Loading_Screens/Intro_Cutscene/Intro_Video_2.yy",
+  },
+  "points":[
+    {"speed":5.0,"x":0.0,"y":9.0,},
+    {"speed":5.0,"x":0.0,"y":17.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,1 @@
+path_start(PTH_Intro_001_Forest_background_1, 4, path_action_stop, true);

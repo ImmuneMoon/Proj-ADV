@@ -1,0 +1,18 @@
+{
+  "$GMPath":"",
+  "%Name":"PTH_Intro_001_Forest_foreground_1",
+  "closed":false,
+  "kind":0,
+  "name":"PTH_Intro_001_Forest_foreground_1",
+  "parent":{
+    "name":"Intro_Video_1",
+    "path":"folders/Paths/Title_n_Loading_Screens/Intro_Cutscene/Intro_Video_1.yy",
+  },
+  "points":[
+    {"speed":10.0,"x":0.0,"y":0.0,},
+    {"speed":10.0,"x":-56.0,"y":0.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}

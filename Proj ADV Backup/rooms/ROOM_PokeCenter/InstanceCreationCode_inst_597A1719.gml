@@ -1,0 +1,1 @@
+global.Player_go_in_PkmnCtr = false;
