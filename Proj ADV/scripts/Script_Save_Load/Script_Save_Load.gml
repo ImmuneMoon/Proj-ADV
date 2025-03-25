@@ -35,8 +35,8 @@ function Script_Save_Backpack() {
 	//global.backpack = new 
 }
 
-
 function Script_Save_Room() {
+	show_debug_message("#### --- SAVING ROOM DATA --- ####")
     if (room == ROOM_000_Game_Begin
     || room == ROOM_001_Studio_Screen
     || room == ROOM_002_Intro_Video
@@ -67,22 +67,31 @@ function Script_Save_Room() {
         NPCAmount: array_length(NPC_arr),
         NPCData: NPC_arr
     };
+	
         
 	// Constructor for level data
 	function levelData(_ROOM, _OBJs) constructor {
-	    ROOM = _ROOM;
-	    OBJs = _OBJs;
+		ROOM = _ROOM;
+		OBJs = _OBJs;
 	}
 	
     // Correctly pass the current room and room_items structure
     global.levelData = new levelData(room, ROOM_OBJs);
+	if (is_struct(global.levelData)) {
+	    show_debug_message("#### --- Room " + string(room) + " saved with " +
+	        string(ROOM_OBJs.ItemAmount) + " item(s). --- ####");
+	
+	}
+	else {
+		show_debug_message("#### --- ERROR --- SAVE FAILED --- ####")
+	}
+	
     
-    show_debug_message("Room " + string(room) + " saved with " +
-        string(ROOM_OBJs.ItemAmount) + " item(s).");
 }
 
 
 function Script_Compare_Longer_List(SAVEList, SAVELength, GlobalList, GlobalLength, Remove) {
+	show_debug_message("#### --- Script_Compare_Longer_List ACTIVE --- ####");
 	
 	// Converts the global ds_list to an array
 	var GlobalList_arr = [];
@@ -142,6 +151,8 @@ function Script_Compare_Longer_List(SAVEList, SAVELength, GlobalList, GlobalLeng
 }
 
 function Script_Load_Room() {
+	show_debug_message("#### --- LOADING ROOM DATA --- ####")
+	
 	if (room == ROOM_000_Game_Begin
 	|| room == ROOM_001_Studio_Screen
 	|| room == ROOM_002_Intro_Video
@@ -170,93 +181,136 @@ function Script_Load_Room() {
 		// A flag to check if this item was already picked up.
 		var destroy_item;
 		
+		// Adding an item
 		if (SAVE_Length >= GlobalLength) {
 			destroy_item = false;
 		}
+		// Deleting an item
 		if (SAVE_Length <= GlobalLength) {
 			destroy_item = true;
 		}
 		
 		var longer_items = Script_Compare_Longer_List(saved_items, SAVE_Length, GlobalItemList, GlobalLength, destroy_item);
+		// Make longer_items struct info available
+		var long_items_arr = longer_items.Array;
+		var long_items_arr_index = longer_items.ArrPos;
 		
-		for (var i = 0; i < array_length(longer_items.Array); i++) {
-		    if (saved_items[i].unique_id == unique_id) {
-		        still_exists = true;
-		        break;
-		    }
+		// Add item
+		if (destroy_item == false) {
+			for (var i = 0; i < array_length(long_items_arr); i++) {
+				var item_info = long_items_arr[i]; 
+				// Extract X and Y values.
+				var item = item_info.obj;
+			    var pos_x = item_info.objX;
+			    var pos_y = item_info.objY;
+        
+			    /* 
+					Create an instance of the item at the saved x and y on layer "items".
+					Make sure that 'item' corresponds to the correct object type.
+					
+					Note: Added item instance should add itself to the global item list automatically
+				*/
+					instance_create_depth(pos_x, pos_y, "Item_Layer", item);
+        
+			    show_debug_message("Created item at (" + string(pos_x) + ", " + string(pos_y) + ")");
+				show_debug_message("Room " 
+				+ string(room) 
+				+ " loaded with " 
+				+ string(array_length(long_items_arr)) 
+				+ " Added item(s).");
+			}
+		
 		}
-		for (var i = 0; i < array_length(saved_warps); i++) {
-		    if (saved_warps[i].unique_id == unique_id) {
-		        still_exists = true;
-		        break;
-		    }
+		// Destroy item
+		if (destroy_item == true) {
+			// Remove from ROOM
+			for (var i = 0; i < array_length(long_items_arr); i++) {
+				var item_info = long_items_arr[i]; 
+				// Extract X and Y values.
+				var item = item_info.obj;
+			    var pos_x = item_info.objX;
+			    var pos_y = item_info.objY;
+			    instance_destroy(long_items_arr[i]);
+				show_debug_message("Deleted item at (" + string(pos_x) + ", " + string(pos_y) + ")");
+			}
+			// Remove from global list
+			for (var i = 0; i < array_length(long_items_arr_index); i++) {
+			    var item_index = long_items_arr_index[i];
+				ds_list_delete(GlobalItemList, item_index);
+				show_debug_message("Removed item from Global list: " 
+				+ string(GlobalItemList)
+				+ " at index: "
+				+ string(long_items_arr_index[i]));
+			}
+			show_debug_message("Room: " 
+			+ string(room) 
+			+ " loaded with: " 
+			+ string(array_length(long_items_arr)) 
+			+ " Added item(s).");
 		}
-		//for (var i = 0; i < array_length(saved_ROOMs); i++) {
-		//    if (saved_ROOMs[i].unique_id == unique_id) {
-		//        still_exists = true;
-		//        break;
-		//    }
-		//}
-		for (var i = 0; i < array_length(saved_NPCs); i++) {
-		    if (saved_NPCs[i].unique_id == unique_id) {
-		        still_exists = true;
-		        break;
-		    }
-		}
+		
+		
+		
+	//	for (var i = 0; i < array_length(longer_items.Array); i++) {
+	//	    if (saved_items[i].unique_id == unique_id) {
+	//	        still_exists = true;
+	//	        break;
+	//	    }
+	//	}
+	//	for (var i = 0; i < array_length(saved_warps); i++) {
+	//	    if (saved_warps[i].unique_id == unique_id) {
+	//	        still_exists = true;
+	//	        break;
+	//	    }
+	//	}
+	//	//for (var i = 0; i < array_length(saved_ROOMs); i++) {
+	//	//    if (saved_ROOMs[i].unique_id == unique_id) {
+	//	//        still_exists = true;
+	//	//        break;
+	//	//    }
+	//	//}
+	//	for (var i = 0; i < array_length(saved_NPCs); i++) {
+	//	    if (saved_NPCs[i].unique_id == unique_id) {
+	//	        still_exists = true;
+	//	        break;
+	//	    }
+	//	}
     
-		// If the item was not found in the saved state, destroy it.
-		if (!still_exists) {
-		    instance_destroy();
-		}
-	}
+	//	// If the item was not found in the saved state, destroy it.
+	//	if (!still_exists) {
+	//	    instance_destroy();
+	//	}
+	//}
 
 
-	// Will place any items that may be placed by the player. 
-	// i.e, if in room save state, but not on load, they are placed 
+	//// Will place any items that may be placed by the player. 
+	//// i.e, if in room save state, but not on load, they are placed 
 
 
-    // Check if there is saved data for the current room.
-    if (!is_struct(global.levelData)) {
-        show_debug_message("No saved data for room: " + string(room));
-        return;
-    }
+    //// Check if there is saved data for the current room.
+    //if (!is_struct(global.levelData)) {
+    //    show_debug_message("No saved data for room: " + string(room));
+    //    return;
+    //}
 	
-	if (!global.levelData.ROOM) {
-        show_debug_message("No ROOM data: " + string(room));
-        return;
+	//if (!global.levelData.ROOM) {
+    //    show_debug_message("No ROOM data: " + string(room));
+    //    return;
+	//}
+    
+    //// Retrieve the room-specific save data.
+    //var ROOM_data = global.levelData;
+    //var OBJs_struct = ROOM_data.OBJs;
+    
+    //if (!is_struct(OBJs_struct)) {
+    //    show_debug_message("Saved items data for room " + string(room) + " is invalid.");
+    //    return;
+    //}
+    
+    //// Get the layer id for the item layer
+    //var item_layer = layer_get_id("Item_Layer");
 	}
+
     
-    // Retrieve the room-specific save data.
-    var ROOM_data = global.levelData;
-    var OBJs_struct = ROOM_data.OBJs;
-    
-    if (!is_struct(OBJs_struct)) {
-        show_debug_message("Saved items data for room " + string(room) + " is invalid.");
-        return;
-    }
-    
-    // Get the layer id for the item layer
-    var item_layer = layer_get_id("Item_Layer");
-    
-    // Loop through each saved item.
-    for (var i = 0; i < OBJs_struct.ItemAmount; i++) {
-        var item_info = items_struct.ItemData[i];
-        
-        // Extract X and Y values.
-		var item = item_info.obj;
-        var pos_x = item_info.objX;
-        var pos_y = item_info.objY;
-        
-        // Create an instance of the item at the saved x and y on layer "items".
-        // Make sure that 'item' corresponds to the correct object type.
-        instance_create_depth(pos_x, pos_y, "Item_Layer", item);
-        
-        show_debug_message("Created item at (" + string(pos_x) + ", " + string(pos_y) + ")");
-    }
-    
-    show_debug_message("Room " 
-	+ string(room) 
-	+ " loaded with " 
-	+ string(items_struct.ItemAmount) 
-	+ " item(s).");
+
 }
