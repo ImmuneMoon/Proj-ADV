@@ -1,6 +1,6 @@
 Month 1 Progress [2/24/25 -> 3/24/25]
 
-####---LOG 1---####
+####--- LOG 1 ---####
 
 Log Date: 3/18/25
 
@@ -15,3 +15,24 @@ begin incorporating menu screens (Including character inventory, monster
 inventory, battle menus and related.), incorporate needed NPCs for first 
 location and begin working on new locations using the foundations made in 
 this period.
+
+####--- LOG 2 --- END MONTH 1 ---####
+
+Log Date: 3/24/25
+
+Since last log, i've finished the opening sequence animation to the title
+screen, and incorporated the dialogue to an acceptable extent. It doesnt 
+have the indicator to continue, or conclude at the end of the text being 
+displayed, and repeats. But for now, it serves the purpose of showing 
+dialogue for events so we can build npc encounters. There are 2 NPCs to
+interact with in different rooms so far for testing. 
+
+I have incorporated route transitions as well. the music for the route 
+transition room reflects the area you came from currently, and when 
+looping, the music doesnt transition correctly to immediatly playing again,
+but its workable for now.
+
+I've begun working on picking up items, an inventory, and a save/ load system.
+Since, as of now, the way they work is going to be related unless a new 
+method should be adopted. It's nearly to a workable state, and when it is, i'll
+start on incorporating GUI for everything.
