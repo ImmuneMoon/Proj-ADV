@@ -12,8 +12,8 @@
   "name":"OBJ_Dialogue_Text",
   "overriddenProperties":[],
   "parent":{
-    "name":"[0]Control Assets",
-    "path":"folders/Objects/[0]Control Assets.yy",
+    "name":"Dialogs",
+    "path":"folders/Objects/Dialogs.yy",
   },
   "parentObjectId":null,
   "persistent":true,

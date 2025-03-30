@@ -1,3 +1,4 @@
+show_debug_message("########### --- AUDIO MANAGER STEP --- ########### ");
 var _finalVol = global.musicVolume * global.masterVolume;
 
 // Play the target song

@@ -9,8 +9,8 @@
   "name":"OBJ_Inventory_Manager",
   "overriddenProperties":[],
   "parent":{
-    "name":"[0]Control Assets",
-    "path":"folders/Objects/[0]Control Assets.yy",
+    "name":"Might_Need",
+    "path":"folders/Objects/[0]Control Assets/Might_Need.yy",
   },
   "parentObjectId":null,
   "persistent":false,

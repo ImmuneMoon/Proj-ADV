@@ -1,4 +1,4 @@
-ds_list_add(global.item_list, id);
+ItemData = {};
 
 Grid_Pixels = global.Grid_Pixels;
 

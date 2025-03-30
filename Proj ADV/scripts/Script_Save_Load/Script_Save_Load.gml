@@ -1,23 +1,42 @@
+
+
+
 function Script_Auto_Sort_List(GlobalList){
+	show_debug_message("Sorting: " + string(GlobalList));
     // Save the state of the room you're leaving
     var count = ds_list_size(GlobalList);
+	show_debug_message("Size = " + string(count));
     var OBJs_array = [];
-    var inst;
+    var inst_Item_Data;
+	var inst;
+	
+	if (count < 1) {
+		return OBJs_array;
+	}
     
-    // Loop through each item in the global item list.
-    for (var i = 0; i < count; i++) {
-        // Ensure the instance exists before processing it
-        inst = GlobalList[| i];
-        if (instance_exists(inst)) {
-            var OBJ_entry = {
-                objX: inst.x,
-                objY: inst.y,
-                obj: inst, // save the object index instead of the instance itself
-                unique_id: i // if needed
-            };
-            array_push(OBJs_array, OBJ_entry);
-        }
-    }
+	for (var i = 0; i < count; i++) {
+	    inst_Item_Data = GlobalList[| i];
+	    show_debug_message("inst_Item_Data: " + string(inst_Item_Data));
+
+	    // Check if inst_Item_Data is a struct and has a key "ID".
+	    if (is_struct(inst_Item_Data) && variable_instance_exists(inst_Item_Data, "ID")) {
+	        inst = inst_Item_Data.ID;
+	    } else {
+	        inst = inst_Item_Data; // Assume it's directly an instance.
+	    }
+
+	    show_debug_message("Instance: " + string(inst));
+
+	    if (instance_exists(inst)) {
+	        var OBJ_entry = {
+	            objX : inst.x,
+	            objY : inst.y,
+	            obj  : inst, // saving the instance reference
+	            unique_id: i
+	        };
+	        array_push(OBJs_array, OBJ_entry);
+	    }
+	}
 	return OBJs_array;
 }
 
@@ -47,11 +66,25 @@ function Script_Save_Room() {
         return;
     }
     
+	        
+	// Constructor for level data
+	function levelData(_ROOM, _OBJs) constructor {
+		 var NewlevelData = {
+			ROOM : _ROOM,
+			OBJs : _OBJs
+		
+		 }
+		 return NewlevelData;
+	}
+	
     // Pull each list
-	var item_arr = Script_Auto_Sort_List(global.item_list)
-    var warp_arr = Script_Auto_Sort_List(global.warp_list);
+	var item_list = global.item_list;
+	var warp_list = global.warp_list;
+	var NPC_list = global.NPC_list;
+	var item_arr = Script_Auto_Sort_List(item_list)
+    var warp_arr = Script_Auto_Sort_List(warp_list);
     //var ROOM_arr = Script_Auto_Sort_List(global.ROOM_List);
-    var NPC_arr = Script_Auto_Sort_List(global.NPC_list);
+    var NPC_arr = Script_Auto_Sort_List(NPC_list);
     
     // Build a structure for the room’s items.
     var ROOM_OBJs = {
@@ -67,16 +100,11 @@ function Script_Save_Room() {
         NPCAmount: array_length(NPC_arr),
         NPCData: NPC_arr
     };
-	
-        
-	// Constructor for level data
-	function levelData(_ROOM, _OBJs) constructor {
-		ROOM = _ROOM;
-		OBJs = _OBJs;
-	}
+
 	
     // Correctly pass the current room and room_items structure
-    global.levelData = new levelData(room, ROOM_OBJs);
+    var NewlevelData = new levelData(room, ROOM_OBJs);
+	global.levelData = NewlevelData;
 	if (is_struct(global.levelData)) {
 	    show_debug_message("#### --- Room " + string(room) + " saved with " +
 	        string(ROOM_OBJs.ItemAmount) + " item(s). --- ####");
@@ -166,10 +194,12 @@ function Script_Load_Room() {
 	if (is_struct(global.levelData)) {
 		// Get the array of 'active' items for this room from the saved state.
 		var saved_items = global.levelData.OBJs.ItemData;
+		show_debug_message("Saved items: " + string(saved_items));
 		var saved_warps = global.levelData.OBJs.WarpData;
 		var saved_NPCs = global.levelData.OBJs.NPCData;
 		
 		var GlobalItemList = global.item_list;
+		show_debug_message("Global items: " + string(GlobalItemList));
 		var GlobalWarpList = global.warp_list;
 		var GlobalNPCsList = global.NPC_list;
     
@@ -177,16 +207,20 @@ function Script_Load_Room() {
 		// Loop through the saved items; if this item appears in the saved state,
 		// then it hasn’t been picked up.
 		var SAVE_Length = array_length(saved_items);
+		show_debug_message("Saved items length: " + string(SAVE_Length));
 		var GlobalLength = ds_list_size(GlobalItemList);
+		show_debug_message("Global items length: " + string(SAVE_Length));
 		// A flag to check if this item was already picked up.
 		var destroy_item;
 		
 		// Adding an item
 		if (SAVE_Length >= GlobalLength) {
+			show_debug_message("Save > Global, add item");
 			destroy_item = false;
 		}
 		// Deleting an item
 		if (SAVE_Length <= GlobalLength) {
+			show_debug_message("Global > Save, delete item");
 			destroy_item = true;
 		}
 		
@@ -197,6 +231,7 @@ function Script_Load_Room() {
 		
 		// Add item
 		if (destroy_item == false) {
+			show_debug_message("Attempting to add item");
 			for (var i = 0; i < array_length(long_items_arr); i++) {
 				var item_info = long_items_arr[i]; 
 				// Extract X and Y values.
@@ -223,6 +258,7 @@ function Script_Load_Room() {
 		}
 		// Destroy item
 		if (destroy_item == true) {
+			show_debug_message("Attempting to delete item");
 			// Remove from ROOM
 			for (var i = 0; i < array_length(long_items_arr); i++) {
 				var item_info = long_items_arr[i]; 
@@ -246,7 +282,7 @@ function Script_Load_Room() {
 			+ string(room) 
 			+ " loaded with: " 
 			+ string(array_length(long_items_arr)) 
-			+ " Added item(s).");
+			+ " deleted item(s).");
 		}
 		
 		

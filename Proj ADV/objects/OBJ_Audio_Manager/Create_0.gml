@@ -1,6 +1,7 @@
+show_debug_message("########### --- AUDIO MANAGER CREATE --- ########### ");
 //global volume control
 global.masterVolume = .25;
-global.musicVolume = .25;
+global.musicVolume = .5;
 
 //info for the song we are currntly playing / trying to play
 songInstance = noone;

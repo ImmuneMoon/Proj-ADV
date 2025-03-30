@@ -36,3 +36,22 @@ I've begun working on picking up items, an inventory, and a save/ load system.
 Since, as of now, the way they work is going to be related unless a new 
 method should be adopted. It's nearly to a workable state, and when it is, i'll
 start on incorporating GUI for everything.
+
+####--- LOG 3 --- MONTH 2 ---####
+
+Log Date: 3/30/25
+
+In the process of incorporating the inventory, and save/ load system, I ran into
+some critical problems with the structure of the project. I needed a more dynamic
+system, and as a current solution, I have made a large amount of the functions 
+modular in thier own Scripts. After days of testing and debugging, I once again 
+have the character moving properly in this new system and colliding correctly. 
+There are some issues still though. 
+
+The warps no longer work atm, and the character seems to have issuses animating
+correctly, as they are currently 'ghosting' and appearing for a moment in the next
+block before they move there, then dissapearing as the character moves into the spot.
+
+I'm backing up and logging at this point, for I have the game in the best place its
+been since incorporating the new system. I will continue to work toward returning to 
+previous functionality.

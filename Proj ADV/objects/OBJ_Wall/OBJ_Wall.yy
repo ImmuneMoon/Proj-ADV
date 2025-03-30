@@ -9,10 +9,7 @@
     "name":"Walls",
     "path":"folders/Objects/Walls.yy",
   },
-  "parentObjectId":{
-    "name":"OBJ_Silph_co_Tower",
-    "path":"objects/OBJ_Silph_co_Tower/OBJ_Silph_co_Tower.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

@@ -2,6 +2,8 @@
 var curr_message;
 // Only process dialog logic if visible
 if (global.display_text_box == true) {
+	// Have the player stand still until the dialogue box is closed
+	global.direction_keypress = false;
 
     // Set the new dialogue
 	curr_message = global.current_dialogue;

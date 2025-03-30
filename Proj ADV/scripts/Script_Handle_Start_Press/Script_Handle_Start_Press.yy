@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Script_Handle_Start_Press",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Script_Handle_Start_Press",
+  "parent":{
+    "name":"Control_logic",
+    "path":"folders/Scripts/Control_logic.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

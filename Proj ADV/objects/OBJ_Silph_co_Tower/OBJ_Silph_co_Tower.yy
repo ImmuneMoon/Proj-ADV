@@ -9,7 +9,10 @@
     "name":"Buildings",
     "path":"folders/Objects/Cities/Saffron_CIty/Buildings.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"OBJ_Wall",
+    "path":"objects/OBJ_Wall/OBJ_Wall.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

@@ -1,22 +1,11 @@
-show_debug_message("#### --- Game Controller --- ####")
+show_debug_message("#### --- GAME CONTROLLER CREATE --- ####")
 
-global.right_key = false;
-global.left_key  = false;
-global.up_key    = false;
-global.down_key  = false;
-global.start_key = false;
-global.select_key = false;
+global.Grid_Pixels = 16;  // Size of each area wanted checking for object
 
-key_press_start = 0; // Track Enter key presses
-key_pressed = false;
-key_press_duration = 0;
-short_press_limit = 100;
-start_key_processed = false;
-
-global.player_target = OBJ_Player1;
 global.Player1_longpress = false;
 global.frame_count = 0;
 
+global.MainCollisionOBJ = OBJ_Wall;
 
 global.ROOM_List = ds_list_create();
 
@@ -40,6 +29,10 @@ global.Player_prev_Y_Mart = 0;
 global.Player_go_in_Mart = false;
 global.previous_room_Mart = noone;
 
+
+// #### --- Warps --- ####
+
+
 // Initialize warp obj list
 global.warp_list = ds_list_create();
 
@@ -52,20 +45,31 @@ global.prev_room_Player_X = 0;
 global.prev_rooom_Player_Y = 0;
 
 
-global.Grid_Pixels = 16;  // Size of each area wanted checking for object
+// #### --- NPCs --- ####
+
 
 // Initialize NPC obj list
 global.NPC_list = ds_list_create();
 global.dialogue_list = ds_list_create();
+
 // NPC settings
 global.curr_NPC_inst = noone;
 global.facing_NPC = false;
+
+
+// #### --- Text --- ####
+
 
 // Text speed
 global.display_text_box = false;
 global.text_speed = .75;
 global.current_dialogue = "";
 
+
+// #### --- Items --- #####
+
+
+global.facing_item = noone // Assigned the item that is being faced
 
 // Inventory
 global.backpack = {};

@@ -1,3 +1,5 @@
+show_debug_message("#### --- GAME CONTROLLER ROOM START --- ####");
+
 room_start_time = current_time;
 
 

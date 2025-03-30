@@ -11,10 +11,6 @@ var search_left = currX - Grid_Pixels;
 var interacting = false;
 var facing = false;
 
-if (keyboard_check_pressed(vk_pagedown) && global.facing_NPC) {
-	global.interacting = true;
-}
-
 if (place_meeting(search_right, y, OBJ_Player1) && global.interacting) {
 	show_debug_message("Player Detected! - RIGHT");
 	face = RIGHT;
