@@ -2,12 +2,18 @@ show_debug_message("######## --- PLAYER1 CREATE --- ########");
 
 global.PlayerCharacter = id;
 
+frame_count = 0;
+
 Grid_Pixels = global.Grid_Pixels;  // 16px
 // Initialize movement variables
-currX = x;	// Player's current x
-currY = y;	// Player's Current y
+currX = 0;	// Player's current x
+currY = 0;	// Player's Current y
+next_X_move = 0;
+next_Y_move = 0;
 
-current_key = -1
+current_key = -1;
+
+shortpress_needed = false;
 
 // --- Sprite and Animation Setup ---
 sprite[RIGHT] = SPR_Player_Right;  // Assign the sprite for moving right
@@ -21,16 +27,24 @@ sprite_index = sprite[face];  // Use the sprite for the current facing direction
 image_index = 0;              // Start with the first frame of the sprite animation
 image_speed = 0;   
 
+
+
+fra_16_move = false;
+fra_32_collide = false;
+
+
 _items_arr = [];
 _key_items_arr = [];
 _pokeballs_arr = [];
 
 collision = false;
 
-global.inventory = {
+global.PlayerInventory = {
 
     ITEMS : _items_arr,
     KEY_ITEMS : _key_items_arr,
     POKe_BALLS : _pokeballs_arr
 
 };
+
+global.add_to_inv = false;

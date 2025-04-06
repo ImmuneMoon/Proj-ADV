@@ -16,7 +16,11 @@ inventory, battle menus and related.), incorporate needed NPCs for first
 location and begin working on new locations using the foundations made in 
 this period.
 
-####--- LOG 2 --- END MONTH 1 ---####
+
+
+
+####--- LOG 2 --- END MONTH 1 ---#### 
+Month 2 Progress [3/24/25 -> 4/24/25]
 
 Log Date: 3/24/25
 
@@ -37,6 +41,9 @@ Since, as of now, the way they work is going to be related unless a new
 method should be adopted. It's nearly to a workable state, and when it is, i'll
 start on incorporating GUI for everything.
 
+
+
+
 ####--- LOG 3 --- MONTH 2 ---####
 
 Log Date: 3/30/25
@@ -55,3 +62,28 @@ block before they move there, then dissapearing as the character moves into the 
 I'm backing up and logging at this point, for I have the game in the best place its
 been since incorporating the new system. I will continue to work toward returning to 
 previous functionality.
+
+
+
+
+####--- LOG 4 --- MONTH 2 ---####
+
+Log Date: 4/6/25
+
+I have been working towards restoring previous functionality since incorporating this 
+new system. I have (mostly) restored walking functionality, with the side-effect of 
+what I can only describe as a pre-movement "ghost" of some sort, of the player character 
+appearing ahead of the, let's call it the "Main" image of the player, breifly before 
+the player animates and assumes the position. This does not seem to impact movement, 
+collisions, but interactions w/ objects, like picking an item up, or teleporting, lock 
+the character in place for some reason. Items do dissapear when picked up and are added 
+to the inventory it seems. 
+
+I will tackle the ghost problem at a later point and focus on 
+further refining the inventory and fixing the player being stuck on interacting. This 
+update is primarily meant to address the, workable-for-now movement system. It will 
+suffice for testng purposes until a time where a full inventory and save system are 
+implemented to a acceptable level, unless some sort of lightbulb moment occours. 
+
+Other soonish considerations are implementing the battle system and further refining the 
+NPC dialogue.

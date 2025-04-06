@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Script_Load_Room",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Script_Load_Room",
+  "parent":{
+    "name":"Save_n_Load",
+    "path":"folders/Scripts/Save_n_Load.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

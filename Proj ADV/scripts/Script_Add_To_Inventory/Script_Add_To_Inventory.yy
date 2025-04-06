@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"Script_Add_To_Inventory",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Character_control_logic",
+    "path":"folders/Scripts/Character_control_logic.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

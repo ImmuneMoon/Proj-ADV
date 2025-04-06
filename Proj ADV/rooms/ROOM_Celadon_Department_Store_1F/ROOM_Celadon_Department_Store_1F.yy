@@ -24,7 +24,7 @@
   "name":"ROOM_Celadon_Department_Store_1F",
   "parent":{
     "name":"Celadon_Department_Store",
-    "path":"folders/Rooms/Kanto Reigon/Celadon_City/Celadon_Department_Store.yy",
+    "path":"folders/Rooms/Kanto Reigon/02_Celadon_City/Celadon_Department_Store.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

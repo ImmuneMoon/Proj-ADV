@@ -1,15 +1,12 @@
 function Script_Handle_A_Press(){
-	show_debug_message("#### --- Script_Handle_A_Press --- ####")
+	show_debug_message("#### --- Script_Handle_A_Press --- ####");
 	// if the player is facing an item
 	if (global.facing_item != noone) {
 		show_debug_message("Player is facing an item");
-		var item_inst = global.facing_item;
-		show_debug_message("Adding: " + string(item_inst) + "to inventory")
-		
-		Script_Add_To_Inventory(item_inst);
+		global.add_to_inv = true;
 	}
 	if (global.facing_NPC == true) {
-		show_debug_message("Player is facing an NPC");
+		show_debug_message("Player is facing an NPC, global interacting setting to true");
 		global.interacting = true;
 	}
 	

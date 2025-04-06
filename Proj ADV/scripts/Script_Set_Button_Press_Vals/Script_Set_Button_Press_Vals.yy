@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Script_Set_Button_Press_Vals",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Script_Set_Button_Press_Vals",
+  "parent":{
+    "name":"Control_logic",
+    "path":"folders/Scripts/Control_logic.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

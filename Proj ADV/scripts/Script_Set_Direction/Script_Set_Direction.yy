@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Script_Set_Direction",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Script_Set_Direction",
+  "parent":{
+    "name":"Character_control_logic",
+    "path":"folders/Scripts/Character_control_logic.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

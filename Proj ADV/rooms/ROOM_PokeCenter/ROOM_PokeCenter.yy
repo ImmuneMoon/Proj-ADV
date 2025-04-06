@@ -76,7 +76,7 @@
   "name":"ROOM_PokeCenter",
   "parent":{
     "name":"PokeCenter_n_PokeMart",
-    "path":"folders/Rooms/Kanto Reigon/Map_Center_Saffron_City/PokeCenter_n_PokeMart.yy",
+    "path":"folders/Rooms/Kanto Reigon/01_Map_Center_Saffron_City/PokeCenter_n_PokeMart.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

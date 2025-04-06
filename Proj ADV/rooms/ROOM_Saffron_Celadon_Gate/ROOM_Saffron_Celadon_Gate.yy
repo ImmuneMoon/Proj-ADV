@@ -38,7 +38,7 @@
   "name":"ROOM_Saffron_Celadon_Gate",
   "parent":{
     "name":"Route_Gates",
-    "path":"folders/Rooms/Kanto Reigon/Map_Center_Saffron_City/Route_Gates.yy",
+    "path":"folders/Rooms/Kanto Reigon/01_Map_Center_Saffron_City/Route_Gates.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

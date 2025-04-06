@@ -40,8 +40,8 @@
   ],
   "name":"ROOM_Celadon_City",
   "parent":{
-    "name":"Celadon_City",
-    "path":"folders/Rooms/Kanto Reigon/Celadon_City.yy",
+    "name":"02_Celadon_City",
+    "path":"folders/Rooms/Kanto Reigon/02_Celadon_City.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

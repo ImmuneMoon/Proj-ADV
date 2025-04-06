@@ -1,4 +1,4 @@
-show_debug_message("#### --- GAME CONTROLLER ROOM END --- ####");
+show_debug_message("######## --- GAME CONTROLLER ROOM END --- ########");
     if (room != ROOM_000_Game_Begin
     && room != ROOM_001_Studio_Screen
     && room != ROOM_002_Intro_Video

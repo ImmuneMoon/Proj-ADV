@@ -1,4 +1,4 @@
-show_debug_message("#### --- GAME CONTROLLER CREATE --- ####")
+show_debug_message("########### --- GAME CONTROLLER CREATE --- ###########");
 
 global.Grid_Pixels = 16;  // Size of each area wanted checking for object
 

@@ -103,7 +103,7 @@
   "name":"ROOM_Silphco_3F",
   "parent":{
     "name":"Silphco",
-    "path":"folders/Rooms/Kanto Reigon/Map_Center_Saffron_City/Silphco.yy",
+    "path":"folders/Rooms/Kanto Reigon/01_Map_Center_Saffron_City/Silphco.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

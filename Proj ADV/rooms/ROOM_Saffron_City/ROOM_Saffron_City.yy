@@ -254,8 +254,8 @@
   ],
   "name":"ROOM_Saffron_City",
   "parent":{
-    "name":"Map_Center_Saffron_City",
-    "path":"folders/Rooms/Kanto Reigon/Map_Center_Saffron_City.yy",
+    "name":"01_Map_Center_Saffron_City",
+    "path":"folders/Rooms/Kanto Reigon/01_Map_Center_Saffron_City.yy",
   },
   "parentRoom":null,
   "physicsSettings":{

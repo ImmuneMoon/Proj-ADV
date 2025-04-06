@@ -26,10 +26,14 @@ function Inventory(Item, Section) constructor {
 // we can check the items picked up vs the ones in the room
 // and not rely on deleting everything that isnt in our save file
 function Script_Add_To_Inventory(item_inst){
-	var item_type = item_inst.ItemType;
-	var updated_inv = new Inventory(item_inst, item_type);
-	global.PlayerInventory = updated_inv;
-	ds_list_delete(global.item_list, item_inst);
+	var item_ID = item_inst.ID;
+	if (instance_exists(item_ID)) {
+		var item_TYPE = item_inst.ItemType;
+		var updated_inv = new Inventory(item_inst, item_TYPE);
+		instance_destroy(item_ID);
+		ds_list_delete(global.item_list, item_inst);
+		global.PlayerInventory = updated_inv;
+	}
 }
 
 
